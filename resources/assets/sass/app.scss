@@ -1,0 +1,73 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+.navbar-brand>img{
+  display: inline-block;
+}
+
+.navbar-brand{
+  padding: 7px 15px;
+}
+
+.dropdown-item-text{
+  padding: 5px;
+
+  .form-control{
+    margin-bottom: 5px;
+  }
+}
+
+.main{
+  min-height: 100vh;
+}
+
+.footer{
+  padding: 20px 0;
+}
+
+.site-description{
+  padding: 14px 15px;
+  font-size: 14px;
+}
+
+@media (max-width: 991px) {
+  .site-description{
+    display: none;
+  }
+}
+
+.jumbotron-contact .btn{
+  margin: 5px;
+}
+
+.card{
+  max-width: 400px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.glyphicon-folder-open:before{
+  margin-right: 6px;
+}
+
+.portfolio-description{
+  font-size: 18px;
+}
+
+.carousel{
+  margin: 18px 0;
+}
+
+@media (max-width: 767px){
+  .neighbour-links .neighbour-link{
+    text-align: center;
+    padding: 5px;
+  }
+}
