@@ -26,23 +26,24 @@
                     </span>
                 </p>
                 <div class="portfolio-description">{!! $item->post_content !!}</div>
+                @if($images)
                 <div id="myCarousel" class="carousel slide" data-interval="false" data-ride="carousel">
                     <!-- Indicators -->
                     <ol class="carousel-indicators">
-                    <?php $i = 0; ?>
+                    @php $i = 0 @endphp
                     @foreach($images as $image)
                         @if($i == 0)
                         <li data-target="#myCarousel" data-slide-to="{{ $i }}" class="active"></li>
                         @else
                         <li data-target="#myCarousel" data-slide-to="{{ $i }}"></li>
                         @endif
-                        <?php $i++; ?>
+                        @php $i++ @endphp
                     @endforeach
                     </ol>
 
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
-                    <?php $i = 0; ?>
+                    @php $i = 0 @endphp
                     @foreach($images as $image)
                         @if($i == 0)
                         <div class="item active">
@@ -53,7 +54,7 @@
                             <img src="http://fractal512.pp.ua/wp-content/uploads/photo-gallery{{ $image->image_url }}" alt="">
                         </div>
                         @endif
-                        <?php $i++; ?>
+                        @php $i++ @endphp
                     @endforeach
                     </div>
 
@@ -67,6 +68,7 @@
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
+                @endif
                 @if($demolink)
                     <p class="text-center">
                         <a href="{{ $demolink }}" target="_blank" class="btn btn-lg btn-primary">{{ __('Watch demo') }}</a>

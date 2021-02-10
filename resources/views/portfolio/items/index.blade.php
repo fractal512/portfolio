@@ -8,7 +8,7 @@
     <div class="container">
         <h1 class="text-center">{{ __('My works') }}</h1>
         <div class="row">
-            <?php $i = 1; ?>
+            @php $i = 1 @endphp
             @foreach($items as $item)
             <div class="col-md-6">
                 <div class="card">
@@ -33,7 +33,7 @@
         </div>
         <div class="row">
         @endif
-            <?php $i++; ?>
+            @php $i++ @endphp
             @endforeach
         </div>
         <div class="text-center">
