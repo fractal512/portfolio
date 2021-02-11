@@ -29,6 +29,12 @@ class WpBwgGalleryRepository extends CoreRepository
     public function getGallery($galleryTitle)
     {
         $gallery = $this->startConditions()
+            ->select('id')
+            ->with([
+                'images' => function($query){
+                    $query->select('gallery_id', 'image_url');
+                }
+            ])
             ->where('name', '=', $galleryTitle)
             ->first();
 

@@ -30,6 +30,12 @@ class WpPostRepository extends CoreRepository
     public function getByIdsWithPaginate($passedItems)
     {
         $items = $this->startConditions()
+            ->select('ID', 'post_date', 'post_title', 'post_name')
+            ->with([
+                'meta' => function($query){
+                    $query->select('post_id', 'meta_key', 'meta_value');
+                }
+            ])
             ->whereIn('ID', $passedItems)
             ->where('post_type', '=', 'post')
             ->where('post_status','=', 'publish')
@@ -49,6 +55,7 @@ class WpPostRepository extends CoreRepository
     public function getThumbnail($id)
     {
         $thumbnail = $this->startConditions()
+            ->select('post_title', 'guid')
             ->where('ID', '=', $id)
             ->first();
 
@@ -65,6 +72,18 @@ class WpPostRepository extends CoreRepository
     public function getSpecifiedBySlug($slug)
     {
         $post = $this->startConditions()
+            ->select('ID', 'post_author', 'post_date', 'post_content', 'post_title')
+            ->with([
+                'user' => function($query){
+                    $query->select('ID', 'display_name');
+                },
+                'meta' => function($query){
+                    $query->select('post_id', 'meta_key', 'meta_value');
+                },
+                'taxonomies' => function($query){
+                    $query->select('term_id', 'taxonomy');
+                }
+            ])
             ->where('post_name', '=', $slug)
             ->first();
 
@@ -81,6 +100,7 @@ class WpPostRepository extends CoreRepository
     public function getSpecifiedById($id)
     {
         $post = $this->startConditions()
+            ->select('post_name')
             ->where('ID', '=', $id)
             ->first();
 
@@ -97,6 +117,7 @@ class WpPostRepository extends CoreRepository
     public function getPreviousPost($post, $translatedPosts)
     {
         $previousPost = $this->startConditions()
+            ->select('post_name')
             ->whereIn('ID', $translatedPosts)
             ->where('post_date', '<', $post->post_date)
             ->where('post_type', '=', 'post')
@@ -117,6 +138,7 @@ class WpPostRepository extends CoreRepository
     public function getNextPost($post, $translatedPosts)
     {
         $nextPost = $this->startConditions()
+            ->select('post_name')
             ->whereIn('ID', $translatedPosts)
             ->where('post_date', '>', $post->post_date)
             ->where('post_type', '=', 'post')

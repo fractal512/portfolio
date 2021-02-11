@@ -8,11 +8,15 @@
     <div class="container">
         <h1 class="text-center">{{ __('My works') }}</h1>
         <div class="row">
-            @php $i = 1 @endphp
+            @php $i = 0 @endphp
             @foreach($items as $item)
             <div class="col-md-6">
                 <div class="card">
-                    <a href="{{ url('/portfolio/'.$item->post_name.'/') }}"><img class="img-responsive" src="{{ $meta[$i-1]['thumbnail']->guid }}" alt="{{ $meta[$i-1]['thumbnail']->post_title }}"></a>
+                    @if($meta[$i]['thumbnail'])
+                    <a href="{{ url('/portfolio/'.$item->post_name.'/') }}">
+                        <img class="img-responsive" src="{{ $meta[$i]['thumbnail']->guid }}" alt="{{ $meta[$i]['thumbnail']->post_title }}">
+                    </a>
+                    @endif
                     <div class="card-body">
                         <h3><a href="{{ url('/portfolio/'.$item->post_name.'/') }}">{{ $item->post_title }}</a></h3>
                         <div class="card-meta text-center">
@@ -23,13 +27,13 @@
                             <span class="sep">·</span>
                             <span>
                                 <i class="glyphicon glyphicon-time"></i>
-                                {{ $meta[$i-1]['wastetime'] }} {{ $meta[$i-1]['wastetimeunits'] }}
+                                {{ $meta[$i]['wastetime'] }} {{ $meta[$i]['wastetimeunits'] }}
                             </span>
                         </div>
                     </div>
                 </div>
             </div>
-        @if( $i % 2 == 0 )
+        @if( ($i + 1) % 2 == 0 )
         </div>
         <div class="row">
         @endif

@@ -31,6 +31,7 @@ class WpTermRepository extends CoreRepository
     public function getTermById($termId)
     {
         $term = $this->startConditions()
+            ->select('name')
             ->where('term_id', '=', $termId)
             ->first();
 

@@ -71,6 +71,7 @@ class ShowItemManager extends BaseItemManager
     {
         $contentLength = iconv_strlen($content, $this->charset);
         $shortcodeStart = iconv_strpos($content, '[Best_Wordpress_Gallery', 0, $this->charset);
+        if( $shortcodeStart === false ) return $content;
         $shortcodeEnd = iconv_strpos($content, ']', $shortcodeStart, $this->charset);
 
         $this->galleryShortcode = iconv_substr($content, $shortcodeStart, $shortcodeEnd-$shortcodeStart+1, $this->charset);
@@ -155,6 +156,7 @@ class ShowItemManager extends BaseItemManager
         $needleEnd = '"';
         $needleLength = iconv_strlen($needleStart, $this->charset);
         $galleryIdPositionStart = iconv_strpos($this->galleryShortcode, $needleStart, 0, $this->charset);
+        if( $galleryIdPositionStart === false ) return null;
         $galleryIdPositionEnd = iconv_strpos($this->galleryShortcode, $needleEnd, $galleryIdPositionStart+$needleLength, $this->charset);
         $galleryTitle = iconv_substr(
             $this->galleryShortcode,
