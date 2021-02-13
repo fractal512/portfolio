@@ -49,7 +49,6 @@ class WpPostRepository extends CoreRepository
      * Get post thumbnail.
      *
      * @param int $id
-     *
      * @return Model
      */
     public function getThumbnail($id)
@@ -66,7 +65,6 @@ class WpPostRepository extends CoreRepository
      * Get post specified by slug.
      *
      * @param string $slug
-     *
      * @return Model
      */
     public function getSpecifiedBySlug($slug)
@@ -94,7 +92,6 @@ class WpPostRepository extends CoreRepository
      * Get post specified by ID.
      *
      * @param string $id
-     *
      * @return Model
      */
     public function getSpecifiedById($id)
@@ -147,5 +144,26 @@ class WpPostRepository extends CoreRepository
             ->first();
 
         return $nextPost;
+    }
+
+    /**
+     * Get search results.
+     *
+     * @param string $search
+     * @param array $translatedPosts
+     * @return LengthAwarePaginator
+     */
+    public function getSearchResults($search, $translatedPosts)
+    {
+        $results = $this->startConditions()
+            ->select('post_content', 'post_title', 'post_name')
+            ->whereIn('ID', $translatedPosts)
+            ->where('post_content', 'LIKE', "%".$search."%")
+            ->where('post_type', '=', 'post')
+            ->where('post_status','=', 'publish')
+            ->orderBy('post_date', 'desc')
+            ->paginate(10);
+
+        return $results;
     }
 }

@@ -4,12 +4,11 @@
 namespace App\Managers\Portfolio;
 
 
-use App\Models\WpPost;
 use App\Repositories\WpPostRepository;
 use App\Repositories\WpTermTaxonomyRepository;
 use Illuminate\Database\Eloquent\Collection;
 
-class BaseItemManager
+class BaseManager
 {
     /**
      * @var string
@@ -56,7 +55,7 @@ class BaseItemManager
     }
 
     /**
-     * Get all translated posts ids according to current app locale.
+     * Get all translated posts IDs according to the current app locale.
      *
      * @return array
      */
@@ -71,30 +70,5 @@ class BaseItemManager
         }
 
         return $passedItems;
-    }
-
-    /**
-     * Get post meta information.
-     *
-     * @param string $metaKey
-     * @param WpPost $post
-     * @return string|WpPost
-     */
-    public function getPostMeta($metaKey, $post)
-    {
-        $postMeta = '';
-        $meta = $post->meta;
-
-        foreach ($meta as $postMetaEntry) {
-            if($postMetaEntry->meta_key == $metaKey){
-                $postMeta = $postMetaEntry->meta_value;
-                break;
-            }
-        }
-        if('_thumbnail_id' == $metaKey){
-            $postMeta = $this->wpPostRepository->getThumbnail($postMeta);
-        }
-
-        return $postMeta;
     }
 }

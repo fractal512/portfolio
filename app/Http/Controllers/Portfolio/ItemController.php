@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Portfolio;
 
-use App\Managers\Portfolio\IndexItemManager;
-use App\Managers\Portfolio\ShowItemManager;
+use App\Managers\Portfolio\Item\Actions\IndexItemManager;
+use App\Managers\Portfolio\Item\Actions\ShowItemManager;
 
 class ItemController extends BaseController
 {
@@ -16,7 +16,7 @@ class ItemController extends BaseController
     }
 
     /**
-     * Display a listing of the resource.
+     * Display the list of the resource.
      *
      * @return \Illuminate\Http\Response|\Illuminate\View\View
      */

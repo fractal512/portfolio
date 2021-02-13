@@ -1,9 +1,10 @@
 <?php
 
 
-namespace App\Managers\Portfolio;
+namespace App\Managers\Portfolio\Item\Actions;
 
 
+use App\Managers\Portfolio\Item\BaseItemManager;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 class IndexItemManager extends BaseItemManager

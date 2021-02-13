@@ -1,9 +1,10 @@
 <?php
 
 
-namespace App\Managers\Portfolio;
+namespace App\Managers\Portfolio\Item\Actions;
 
 
+use App\Managers\Portfolio\Item\BaseItemManager;
 use App\Models\WpPost;
 use App\Repositories\WpBwgGalleryRepository;
 use App\Repositories\WpTermRepository;
@@ -33,6 +34,7 @@ class ShowItemManager extends BaseItemManager
 
     /**
      * ShowItemManager constructor.
+     *
      * @param string $slug
      */
     public function __construct($slug)
@@ -45,7 +47,7 @@ class ShowItemManager extends BaseItemManager
     }
 
     /**
-     * Get portfolio item.
+     * Get portfolio item by slug.
      *
      * @param string $slug
      * @return WpPost
@@ -62,7 +64,7 @@ class ShowItemManager extends BaseItemManager
     }
 
     /**
-     * Separate Wordpress shortcode from content.
+     * Separate Wordpress Shortcode code from content.
      *
      * @param string $content
      * @return string
@@ -84,7 +86,7 @@ class ShowItemManager extends BaseItemManager
     }
 
     /**
-     * Check if portfolio item corresponds to current app locale.
+     * Check if portfolio item corresponds to the current app locale.
      *
      * @param WpPost $item
      * @return WpPost|bool

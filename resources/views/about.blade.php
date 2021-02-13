@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
-@section('pageTitle', config('app.name') . ' &#8211; About')
+@section('pageTitle')
+    {{ config('app.name') }} &#8211; {{ __("About") }}
+@endsection
 
 @section('content')
     <section class="jumbotron" style="background-color: transparent">
