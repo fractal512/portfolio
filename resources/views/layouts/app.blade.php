@@ -95,8 +95,17 @@
         </main>
 
         <footer class="footer text-center">
+            <p class="text-muted">
+                <a href="https://github.com/fractal512" target="_blank" rel="nofollow noopener noreferrer">GitHub</a>
+                |
+                <a href="https://packagist.org/users/fractal512/packages/" target="_blank" rel="nofollow noopener noreferrer">Packagist</a>
+                |
+                <a href="https://profiles.wordpress.org/fractal512/" target="_blank" rel="nofollow noopener noreferrer">WordPress</a>
+                |
+                <a href="https://www.opencart.com/index.php?route=marketplace/extension&amp;filter_member=fractal512" target="_blank" rel="nofollow noopener noreferrer">OpenCart</a>
+            </p>
             <div class="container">
-                <span class="text-muted">© 2008 &#8211; {{ date('Y') }} <a class="site-link" href="{{ url('/') }}" rel="home">{{ config('app.name') }}</a></span>
+                <p class="text-muted">© 2008 &#8211; {{ date('Y') }} <a class="site-link" href="{{ url('/') }}" rel="home">{{ config('app.name') }}</a></p>
             </div>
         </footer>
     </div>
