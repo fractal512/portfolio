@@ -30,6 +30,7 @@ return [
         'array'   => 'The :attribute must have between :min and :max items.',
     ],
     'boolean'              => 'The :attribute field must be true or false.',
+    'captcha'              => 'The :attribute field must match with the code on the image.',
     'confirmed'            => 'The :attribute confirmation does not match.',
     'date'                 => 'The :attribute is not a valid date.',
     'date_format'          => 'The :attribute does not match the format :format.',
@@ -121,7 +122,8 @@ return [
         'name' => 'Name',
         'email' => 'E-mail',
         'subject' => 'Subject',
-        'message' => 'Message'
+        'message' => 'Message',
+        'captcha' => 'Code'
     ],
 
 ];

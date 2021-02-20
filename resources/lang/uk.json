@@ -33,5 +33,8 @@
   "email": "Електронна пошта",
   "subject": "Тема",
   "message": "Повідомлення",
-  "Message sent successfully!": "Повідомлення успішно надіслано!"
+  "Message sent successfully!": "Повідомлення успішно надіслано!",
+  "Refresh": "Оновити",
+  "Code": "Код",
+  "Code on the picture...": "Код на зображенні..."
 }

@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bc7ef42c829956a7c8c1eee759d1ec86",
+    "content-hash": "fa7f800e4fb1286a0e5da916b4407fb1",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -151,6 +151,74 @@
                 "parser"
             ],
             "time": "2019-12-30T22:54:17+00:00"
+        },
+        {
+            "name": "fractal512/captcha",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fractal512/captcha.git",
+                "reference": "2f3adade3516b95609ba3965a8a392e38becf955"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fractal512/captcha/zipball/2f3adade3516b95609ba3965a8a392e38becf955",
+                "reference": "2f3adade3516b95609ba3965a8a392e38becf955",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gd": "*",
+                "illuminate/config": "~5|^6|^7|^8",
+                "illuminate/support": "~5|^6|^7|^8",
+                "php": "^5.6|^7.2|^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^8.5"
+            },
+            "type": "package",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Fractal512\\Captcha\\CaptchaServiceProvider"
+                    ],
+                    "aliases": {
+                        "Captcha": "Fractal512\\Captcha\\Facades\\Captcha"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Fractal512\\Captcha\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "fractal512",
+                    "email": "fractal512.web.dev@gmail.com",
+                    "homepage": "https://github.com/fractal512",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Very simple Laravel 5 stateless captcha package.",
+            "homepage": "https://github.com/fractal512/captcha",
+            "keywords": [
+                "captcha",
+                "laravel5 Captcha",
+                "laravel5 Security"
+            ],
+            "support": {
+                "issues": "https://github.com/fractal512/captcha/issues",
+                "source": "https://github.com/fractal512/captcha/tree/v1.0.1"
+            },
+            "time": "2021-02-04T19:08:07+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -3763,5 +3831,6 @@
     "platform": {
         "php": ">=5.6.4"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
 }

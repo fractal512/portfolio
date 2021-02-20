@@ -44,6 +44,7 @@ class MailController extends Controller
             'email' => 'required|email',
             'subject' => 'required',
             'message' => 'required|min:5|max:1000',
+            'captcha' => 'required|captcha'
         ]);
         $data = $request->input();
         unset($data["_token"]);

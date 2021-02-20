@@ -167,6 +167,7 @@ return [
          * Package Service Providers...
          */
         Laravel\Tinker\TinkerServiceProvider::class,
+        Fractal512\Captcha\CaptchaServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -227,6 +228,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Captcha' => Fractal512\Captcha\Facades\Captcha::class,
 
     ],
 

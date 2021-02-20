@@ -33,5 +33,8 @@
   "email": "Электронная почта",
   "subject": "Тема",
   "message": "Сообщение",
-  "Message sent successfully!": "Сообщение успешно отправлено!"
+  "Message sent successfully!": "Сообщение успешно отправлено!",
+  "Refresh": "Обновить",
+  "Code": "Код",
+  "Code on the picture...": "Код на картинке..."
 }
