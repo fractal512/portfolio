@@ -10,7 +10,7 @@
             <h1 class="text-center">{{ $item->post_title }}</h1>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <p class="lead text-muted text-center">{{ $item->post_content }}</p>
+                    <p class="lead text-muted text-center">{!! $item->post_content !!}</p>
                 </div>
             </div>
         </div>
