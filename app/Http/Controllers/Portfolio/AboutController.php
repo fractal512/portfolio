@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Portfolio;
 
+use App\Managers\Portfolio\Item\Actions\ShowItemManager;
 use App\Models\WpPost;
 use App\Models\WpTermTaxonomy;
 use Illuminate\Http\Request;
@@ -29,8 +30,12 @@ class AboutController extends Controller
         $item = WpPost::whereIn('ID', $passedItems)
             ->where('post_type', '=', 'page')
             ->where('post_status','=', 'publish')
+            ->get(['post_name'])
             ->first();
-        return view('about', compact('item'));
+        $showItemManager = app(ShowItemManager::class, ['slug' => $item->post_name]);
+        $item = $showItemManager->getItemBySlug();
+        $images = $showItemManager->getGalleryImages();
+        return view('about', compact('item','images'));
     }
 
     /**
