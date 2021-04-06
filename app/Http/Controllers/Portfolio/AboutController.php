@@ -34,6 +34,7 @@ class AboutController extends Controller
             ->first();
         $showItemManager = app(ShowItemManager::class, ['slug' => $item->post_name]);
         $item = $showItemManager->getItemBySlug();
+        $item = $showItemManager->dropBottomNavigationLinks($item);
         $images = $showItemManager->getGalleryImages();
         return view('about', compact('item','images'));
     }

@@ -32,7 +32,7 @@ class WpBwgGalleryRepository extends CoreRepository
             ->select('id')
             ->with([
                 'images' => function($query){
-                    $query->select('gallery_id', 'image_url');
+                    $query->select('gallery_id', 'image_url', 'order');
                 }
             ])
             ->where('name', '=', $galleryTitle)

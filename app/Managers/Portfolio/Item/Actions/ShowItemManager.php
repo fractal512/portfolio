@@ -64,6 +64,23 @@ class ShowItemManager extends BaseItemManager
     }
 
     /**
+     * Remove bottom navigation links from about page content.
+     *
+     * @param $item
+     * @return WpPost
+     */
+    public function dropBottomNavigationLinks($item)
+    {
+        if(!$item) return $item;
+
+        $content = $item->post_content;
+        $linksStart = iconv_strpos($content, '<div class="form-links">', 0, $this->charset);
+        $item->post_content = iconv_substr($content, 0, $linksStart, $this->charset);
+
+        return $item;
+    }
+
+    /**
      * Separate Wordpress Shortcode code from content.
      *
      * @param string $content
@@ -174,7 +191,7 @@ class ShowItemManager extends BaseItemManager
 
         $gallery = $this->wpBwgGalleryRepository->getGallery($galleryTitle);
 
-        $images = $gallery->images;
+        $images = $gallery->images->sortBy('order');
 
         return $images ?: null;
     }
